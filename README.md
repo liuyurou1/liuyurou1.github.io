@@ -1,7 +1,7 @@
 # Yurou Liu — Personal Homepage
 
 A clean, single-page academic homepage (plain HTML + CSS, no build step),
-styled after academic homepages such as [dongguanting.github.io](https://dongguanting.github.io/).
+styled after academic homepages.
 
 ## Preview locally
 
