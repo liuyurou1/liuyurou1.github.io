@@ -1,0 +1,307 @@
+/* ==========================================================================
+   Yurou Liu — Personal Homepage
+   Style inspired by academic homepages (e.g. dongguanting.github.io)
+   ========================================================================== */
+
+:root {
+  --accent: #2563eb;
+  --accent-soft: #e8f0fe;
+  --accent-dark: #1d4ed8;
+  --text: #1f2933;
+  --text-soft: #52606d;
+  --muted: #7b8794;
+  --border: #e5e9f0;
+  --bg: #ffffff;
+  --bg-soft: #f7f9fc;
+  --badge-bg: #eef2ff;
+  --badge-text: #3730a3;
+  --radius: 14px;
+  --shadow: 0 1px 3px rgba(16, 24, 40, 0.06), 0 6px 24px rgba(16, 24, 40, 0.06);
+  --maxw: 880px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #6ea8fe;
+    --accent-soft: #1e293b;
+    --accent-dark: #93c5fd;
+    --text: #e5e9f0;
+    --text-soft: #b8c1cc;
+    --muted: #8a95a3;
+    --border: #2a3441;
+    --bg: #0f151d;
+    --bg-soft: #161d27;
+    --badge-bg: #1e2a44;
+    --badge-text: #bcd0ff;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    "PingFang SC", "Microsoft YaHei", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 22px 80px;
+}
+
+/* ------------------------------------------------------------------ Nav */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(150%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.topnav .wrap {
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.topnav .brand { font-weight: 700; letter-spacing: -0.01em; }
+.topnav nav a {
+  color: var(--text-soft);
+  margin-left: 18px;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+.topnav nav a:hover { color: var(--accent); text-decoration: none; }
+@media (max-width: 620px) {
+  .topnav nav a { margin-left: 12px; font-size: 0.85rem; }
+  .topnav .brand { font-size: 0.95rem; }
+}
+
+/* -------------------------------------------------------------- Profile */
+.profile {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  align-items: start;
+  padding: 46px 0 8px;
+}
+@media (max-width: 640px) {
+  .profile { grid-template-columns: 1fr; gap: 22px; text-align: center; padding-top: 34px; }
+}
+
+.avatar-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg);
+  box-shadow: var(--shadow);
+  background: var(--bg-soft);
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 220px;
+}
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: all 0.15s ease;
+}
+.social a:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.social a i { font-size: 0.95rem; }
+
+.intro h1 {
+  margin: 0 0 2px;
+  font-size: 2.1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.intro .zh { color: var(--muted); font-weight: 500; font-size: 1.15rem; margin-left: 8px; }
+.intro .role { margin: 4px 0 2px; color: var(--text-soft); font-weight: 600; }
+.intro .affil { margin: 0 0 14px; color: var(--muted); }
+.intro .affil a { font-weight: 600; }
+.bio { margin: 0 0 12px; color: var(--text-soft); }
+.bio strong { color: var(--text); }
+.contact-line { color: var(--muted); font-size: 0.92rem; }
+.contact-line code {
+  background: var(--bg-soft);
+  padding: 1px 7px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.86rem;
+}
+
+/* -------------------------------------------------------------- Section */
+section { padding-top: 40px; scroll-margin-top: 72px; }
+.section-title {
+  font-size: 1.4rem;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+  margin-left: 6px;
+}
+
+/* Research interests chips */
+.interests { display: flex; flex-wrap: wrap; gap: 9px; }
+.interests span {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------------- News */
+.news-box {
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px 18px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.news-box::-webkit-scrollbar { width: 8px; }
+.news-box::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+.news-list { list-style: none; margin: 0; padding: 10px 0; }
+.news-list li { padding: 7px 0; border-bottom: 1px dashed var(--border); font-size: 0.94rem; }
+.news-list li:last-child { border-bottom: none; }
+.news-date {
+  display: inline-block;
+  min-width: 84px;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin-right: 6px;
+}
+
+/* --------------------------------------------------------- Publications */
+.pub-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: -6px 0 18px;
+}
+.pub {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 22px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.pub:last-child { border-bottom: none; }
+@media (max-width: 640px) {
+  .pub { grid-template-columns: 1fr; gap: 12px; }
+}
+.pub-thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 4px;
+  box-shadow: var(--shadow);
+}
+.pub-venue {
+  display: inline-block;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.pub-venue.oral { background: #fde8e8; color: #b91c1c; }
+@media (prefers-color-scheme: dark) {
+  .pub-venue.oral { background: #3b1d1d; color: #fca5a5; }
+}
+.pub-title { font-weight: 700; font-size: 1.04rem; margin: 2px 0 4px; color: var(--text); line-height: 1.4; }
+.pub-authors { color: var(--text-soft); font-size: 0.93rem; margin: 0 0 4px; }
+.pub-authors .me { color: var(--text); font-weight: 700; }
+.pub-meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 8px; font-style: italic; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 7px; }
+.pub-links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-soft);
+  background: var(--bg);
+  transition: all 0.15s ease;
+}
+.pub-links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); text-decoration: none; }
+
+/* ------------------------------------------------------------ Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.timeline li:last-child { border-bottom: none; }
+@media (max-width: 560px) {
+  .timeline li { grid-template-columns: 1fr; gap: 2px; }
+}
+.timeline .when { color: var(--muted); font-weight: 600; font-size: 0.9rem; padding-top: 1px; }
+.timeline .what strong { display: block; color: var(--text); }
+.timeline .what span { display: block; color: var(--text-soft); font-size: 0.93rem; }
+
+/* -------------------------------------------------------------- Footer */
+footer {
+  margin-top: 56px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+footer a { color: var(--muted); }
